@@ -68,7 +68,7 @@
         margin-top: 20px;
         margin-left: -120px;
     }
-    #btn1{
+    #btn1,#btn2{
         display: flex;
         position: relative;
         align-self: center;
@@ -82,6 +82,11 @@
         box-shadow: 2px 2px 10px white;
         margin-left: 120px;
         margin-top: -30px;
+    }
+
+    #btn2{
+        margin-left: -30px;
+        margin-top: 30px;
     }
     #mul{
         display: flex;
@@ -111,7 +116,7 @@
         flex-direction: column;
         background-color: transparent;
         margin-top: 170px;
-        margin-left: 280px;
+        margin-left: 350px;
         height: 50px;
         color: red;
         font-size: 30px;
@@ -119,11 +124,12 @@
 </style>
 <body>
     <div class="div1">
-       
-    <input type="number" id="first" placeholder="first number"><br>
-    <input type="number" id="second" placeholder="second number"><br>
+      
+    <input type="text" id="first" value="" placeholder="first number" onchange="consVal()"><br>
+    <input type="text" id="second" value="" placeholder="second number" onchange="consVal1()"><br>
     <button id="btn" type="submit" onclick="num1()">Multiply</button>
     <button id="btn1" type="submit" onclick="num2()">Divide</button>
+    <button id="btn2" type="submit" onclick="clear1()">Clear</button>
     
 
       <h1 id="mul"></h1>
@@ -131,17 +137,39 @@
 </div>
 </body>
 <script>
-    var a,b,c,d;
-    a=document.querySelector("#first").value;
-    b=document.querySelector("#second").value;
+    var a,b,c,d,e,f;
+    a=document.querySelector("#first");
+    b=document.querySelector("#second");
     c=document.querySelector("#mul");
     d=document.querySelector("#div");
+   
+    
+    function consVal(){
+        e=a.value;
+    }
+    function consVal1(){
+        f=b.value;
+    }
     function num1(){
-     c.innerHTML=a*b;
+    c.innerHTML=e*f;
+   
+    
     }
     function num2(){
-     d.innerHTML=a/b;
+     d.innerHTML=(e/f).toFixed(2);
+    
     }
+
+    function clear1(){
+        console.log("clicked")
+        a.value="";
+        b.value="";
+        c.innerHTML="";
+        d.innerHTML="";
+    }
+   
+   
+    
     
 </script>
 </html>
